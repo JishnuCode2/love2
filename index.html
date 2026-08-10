@@ -10,6 +10,85 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <title>For My Favorite Person ❤️</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* --- Secret Heart Container Styles --- */
+      .heart-code-container {
+        position: relative;
+        width: 180px;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+      }
+
+      .heart-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        fill: #ef4444;
+        filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.4));
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .heart-code-container:focus-within .heart-bg {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.7));
+      }
+
+      .secret-box {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        transform: translateY(-6px);
+      }
+
+      .secret-hint {
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .secret-input {
+        width: 90px;
+        padding: 5px 8px;
+        background: rgba(0, 0, 0, 0.25);
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        color: #ffffff;
+        font-size: 0.9rem;
+        text-align: center;
+        letter-spacing: 2px;
+        outline: none;
+        backdrop-filter: blur(4px);
+        transition: all 0.3s ease;
+      }
+
+      .secret-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .secret-input:focus {
+        background: rgba(0, 0, 0, 0.45);
+        border-color: #ffffff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .feedback-text {
+        font-size: 0.7rem;
+        font-weight: bold;
+        min-height: 14px;
+        transition: opacity 0.3s;
+      }
+
+      .feedback-text.correct { color: #86efac; }
+      .feedback-text.incorrect { color: #fecdd3; }
+    </style>
   </head>
   <body>
     <div class="top-nav-group">
@@ -41,6 +120,25 @@
           Thank you for being the best part of my days, making me laugh, and
           being exactly who you are.
         </p>
+
+        <!-- Secret Heart Code Entry Box -->
+        <div class="heart-code-container">
+          <svg class="heart-bg" viewBox="0 0 200 200">
+            <path d="M100,165 C20,100 20,40 70,40 C88,40 100,55 100,55 C100,55 112,40 130,40 C180,40 180,100 100,165 Z" />
+          </svg>
+          <div class="secret-box">
+            <label for="secretInput" class="secret-hint">Secret Code</label>
+            <input 
+              type="password" 
+              id="secretInput" 
+              class="secret-input" 
+              placeholder="••••" 
+              maxlength="6"
+              autocomplete="off"
+            >
+            <span id="codeFeedback" class="feedback-text"></span>
+          </div>
+        </div>
 
         <div class="button-group">
           <button class="btn" id="surprise-btn">Click for a surprise</button>
@@ -117,5 +215,43 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Secret Code Passcode Listener -->
+<script>
+  const SECRET_CODE = "901371"; 
+  const TARGET_HREF = "https://your-target-url.com"; // Replace with your destination link
+
+  const secretInput = document.getElementById('secretInput');
+  const codeFeedback = document.getElementById('codeFeedback');
+
+  if (secretInput) {
+    secretInput.addEventListener('input', (e) => {
+      const value = e.target.value.trim();
+
+      if (value.length === SECRET_CODE.length) {
+        if (value === SECRET_CODE) {
+          codeFeedback.innerText = "Unlocked! ✨ Redirecting...";
+          codeFeedback.className = "feedback-text correct";
+          secretInput.blur();
+          
+          // Brief 500ms delay to show the unlock feedback before redirecting
+          setTimeout(() => {
+            window.location.href = TARGET_HREF;
+          }, 500);
+        } else {
+          codeFeedback.innerText = "Wrong code!";
+          codeFeedback.className = "feedback-text incorrect";
+          
+          secretInput.style.transform = "translateX(4px)";
+          setTimeout(() => secretInput.style.transform = "translateX(-4px)", 50);
+          setTimeout(() => secretInput.style.transform = "translateX(0)", 100);
+        }
+      } else {
+        codeFeedback.innerText = "";
+      }
+    });
+  }
+</script>
+    
   </body>
 </html>
