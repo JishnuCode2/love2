@@ -1,257 +1,123 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <meta name="theme-color" content="#fff0f3" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <title>For My Favorite Person ❤️</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      /* --- Secret Heart Container Styles --- */
-      .heart-code-container {
-        position: relative;
-        width: 180px;
-        height: 180px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem auto;
-      }
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#fff0f3" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>For My Favorite Person ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top-nav-group">
+      <button class="round-btn-top" id="rain-toggle-btn" title="Heart Rain">
+        ❤️
+      </button>
 
-      .heart-bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        fill: #ef4444;
-        filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.4));
-        transition: transform 0.3s ease, filter 0.3s ease;
-      }
+      <button class="round-btn-top" id="calendar-btn" title="Special Countdown">
+        📅
+      </button>
 
-      .heart-code-container:focus-within .heart-bg {
-        transform: scale(1.05);
-        filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.7));
-      }
+      <!-- Hidden by default -->
+      <button
+        class="round-btn-top"
+        id="event-day-btn"
+        title="Event Day"
+        style="display: none"
+      >
+        🎉
+      </button>
+    </div>
 
-      .secret-box {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-        transform: translateY(-6px);
-      }
+    <div class="home-container active" id="home-screen">
+      <div class="container" id="card">
+        <div class="heart-icon">❤️</div>
+        <h1>Hey Beautiful,</h1>
+        <p>
+          I just wanted to make a little corner of the internet just for you.
+          Thank you for being the best part of my days, making me laugh, and
+          being exactly who you are.
+        </p>
 
-      .secret-hint {
-        font-size: 0.65rem;
-        color: rgba(255, 255, 255, 0.9);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 600;
-      }
+        <div class="button-group">
+          <button class="btn" id="surprise-btn">Click for a surprise</button>
+          <button class="btn btn-secondary" id="read-letter-btn">
+            Read my letter ✉️
+          </button>
+        </div>
 
-      .secret-input {
-        width: 90px;
-        padding: 5px 8px;
-        background: rgba(0, 0, 0, 0.25);
-        border: 1.5px solid rgba(255, 255, 255, 0.5);
-        border-radius: 20px;
-        color: #ffffff;
-        font-size: 0.9rem;
-        text-align: center;
-        letter-spacing: 2px;
-        outline: none;
-        backdrop-filter: blur(4px);
-        transition: all 0.3s ease;
-      }
+        <div id="secret-message"></div>
+      </div>
+    </div>
 
-      .secret-input::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-      }
+    <div class="home-container" id="letter-screen-wrapper">
+      <div class="container letter-container" id="letter-screen">
+        <div class="letter-paper">
+          <div class="letter-header">My Dearest,</div>
+          <div class="letter-body">
+            <p>
+              I love you so much, Samprita. I think I'm the luckiest person in
+              the world to have you as mine. I love you, my cutieepiee
+              babyyy😘😘
+            </p>
+            <p>
+              U r my sunshine, my anxiety relief, my love, my world. I can't
+              live without you with me. You are my everything, Miss Dey.
+            </p>
+            <p>
+              No matter where life takes us, always remember that you have my
+              whole heart, completely and entirely.
+            </p>
+          </div>
+          <div class="letter-footer">
+            Forever & always,<br />
+            <strong>Your Ahaan❤️</strong>
+          </div>
+        </div>
+        <button class="btn btn-back" id="back-to-home-btn">← Go Back</button>
+      </div>
+    </div>
 
-      .secret-input:focus {
-        background: rgba(0, 0, 0, 0.45);
-        border-color: #ffffff;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-      }
+    <div class="rain-container" id="rain-screen">
+      <div class="rain-overlay">
+        <h1>Falling for you...</h1>
+        <p>Every single day.</p>
+        <button class="btn btn-back" id="stop-rain-btn">Stop the rain</button>
+      </div>
+    </div>
 
-      .feedback-text {
-        font-size: 0.7rem;
-        font-weight: bold;
-        min-height: 14px;
-        transition: opacity 0.3s;
-      }
+    <div class="modal-overlay" id="countdown-modal">
+      <div class="modal-content">
+        <button class="close-modal-btn" id="close-modal-btn">✕</button>
+        <div class="modal-heart">💝</div>
+        <h2 id="countdown-title">Time Since Sept 20, 2025</h2>
 
-      .feedback-text.correct { color: #86efac; }
-      .feedback-text.incorrect { color: #fecdd3; }
-    </style>
-  </head>
-  <body>
-    <div class="top-nav-group">
-      <button class="round-btn-top" id="rain-toggle-btn" title="Heart Rain">
-        ❤️
-      </button>
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span id="days">00</span>
+            <p>Days</p>
+          </div>
+          <div class="countdown-box">
+            <span id="hours">00</span>
+            <p>Hours</p>
+          </div>
+          <div class="countdown-box">
+            <span id="minutes">00</span>
+            <p>Mins</p>
+          </div>
+          <div class="countdown-box">
+            <span id="seconds">00</span>
+            <p>Secs</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <button class="round-btn-top" id="calendar-btn" title="Special Countdown">
-        📅
-      </button>
-
-      <!-- Hidden by default -->
-      <button
-        class="round-btn-top"
-        id="event-day-btn"
-        title="Event Day"
-        style="display: none"
-      >
-        🎉
-      </button>
-    </div>
-
-    <div class="home-container active" id="home-screen">
-      <div class="container" id="card">
-        <div class="heart-icon">❤️</div>
-        <h1>Hey Beautiful,</h1>
-        <p>
-          I just wanted to make a little corner of the internet just for you.
-          Thank you for being the best part of my days, making me laugh, and
-          being exactly who you are.
-        </p>
-
-        <!-- Secret Heart Code Entry Box -->
-        <div class="heart-code-container">
-          <svg class="heart-bg" viewBox="0 0 200 200">
-            <path d="M100,165 C20,100 20,40 70,40 C88,40 100,55 100,55 C100,55 112,40 130,40 C180,40 180,100 100,165 Z" />
-          </svg>
-          <div class="secret-box">
-            <label for="secretInput" class="secret-hint">Secret Code</label>
-            <input 
-              type="password" 
-              id="secretInput" 
-              class="secret-input" 
-              placeholder="••••" 
-              maxlength="6"
-              autocomplete="off"
-            >
-            <span id="codeFeedback" class="feedback-text"></span>
-          </div>
-        </div>
-
-        <div class="button-group">
-          <button class="btn" id="surprise-btn">Click for a surprise</button>
-          <button class="btn btn-secondary" id="read-letter-btn">
-            Read my letter ✉️
-          </button>
-        </div>
-
-        <div id="secret-message"></div>
-      </div>
-    </div>
-
-    <div class="home-container" id="letter-screen-wrapper">
-      <div class="container letter-container" id="letter-screen">
-        <div class="letter-paper">
-          <div class="letter-header">My Dearest,</div>
-          <div class="letter-body">
-            <p>
-              I love you so much, Samprita. I think I'm the luckiest person in
-              the world to have you as mine. I love you, my cutieepiee
-              babyyy😘😘
-            </p>
-            <p>
-              U r my sunshine, my anxiety relief, my love, my world. I can't
-              live without you with me. You are my everything, Miss Dey.
-            </p>
-            <p>
-              No matter where life takes us, always remember that you have my
-              whole heart, completely and entirely.
-            </p>
-          </div>
-          <div class="letter-footer">
-            Forever & always,<br />
-            <strong>Your Ahaan❤️</strong>
-          </div>
-        </div>
-        <button class="btn btn-back" id="back-to-home-btn">← Go Back</button>
-      </div>
-    </div>
-
-    <div class="rain-container" id="rain-screen">
-      <div class="rain-overlay">
-        <h1>Falling for you...</h1>
-        <p>Every single day.</p>
-        <button class="btn btn-back" id="stop-rain-btn">Stop the rain</button>
-      </div>
-    </div>
-
-    <div class="modal-overlay" id="countdown-modal">
-      <div class="modal-content">
-        <button class="close-modal-btn" id="close-modal-btn">✕</button>
-        <div class="modal-heart">💝</div>
-        <h2 id="countdown-title">Time Since Sept 20, 2025</h2>
-
-        <div class="countdown-grid">
-          <div class="countdown-box">
-            <span id="days">00</span>
-            <p>Days</p>
-          </div>
-          <div class="countdown-box">
-            <span id="hours">00</span>
-            <p>Hours</p>
-          </div>
-          <div class="countdown-box">
-            <span id="minutes">00</span>
-            <p>Mins</p>
-          </div>
-          <div class="countdown-box">
-            <span id="seconds">00</span>
-            <p>Secs</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="script.js"></script>
-
-    <!-- Secret Code Passcode Listener -->
-<script>
-  const SECRET_CODE = "901371"; 
-  const TARGET_HREF = "https://your-target-url.com"; // Replace with your destination link
-
-  const secretInput = document.getElementById('secretInput');
-  const codeFeedback = document.getElementById('codeFeedback');
-
-  if (secretInput) {
-    secretInput.addEventListener('input', (e) => {
-      const value = e.target.value.trim();
-
-      if (value.length === SECRET_CODE.length) {
-        if (value === SECRET_CODE) {
-          codeFeedback.innerText = "Unlocked! ✨ Redirecting...";
-          codeFeedback.className = "feedback-text correct";
-          secretInput.blur();
-          
-          // Brief 500ms delay to show the unlock feedback before redirecting
-          setTimeout(() => {
-            window.location.href = TARGET_HREF;
-          }, 500);
-        } else {
-          codeFeedback.innerText = "Wrong code!";
-          codeFeedback.className = "feedback-text incorrect";
-          
-          secretInput.style.transform = "translateX(4px)";
-          setTimeout(() => secretInput.style.transform = "translateX(-4px)", 50);
-          setTimeout(() => secretInput.style.transform = "translateX(0)", 100);
-        }
-      } else {
-        codeFeedback.innerText = "";
-      }
-    });
-  }
-</script>
-    
-  </body>
+    <script src="script.js"></script>
+  </body>
 </html>
+
+insert above code snippet in this file code
