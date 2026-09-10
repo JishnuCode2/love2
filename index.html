@@ -18,9 +18,12 @@
       <button class="round-btn-top" id="rain-toggle-btn" title="Heart Rain">
         ❤️
       </button>
+
       <button class="round-btn-top" id="calendar-btn" title="Special Countdown">
         📅
       </button>
+
+      <!-- Hidden by default -->
       <button
         class="round-btn-top"
         id="event-day-btn"
@@ -31,105 +34,101 @@
       </button>
     </div>
 
-    <!-- Main Hub Screen -->
-    <div class="home-container active" id="home-screen">
-      <div class="container hub-card" id="card">
-        
-        <!-- Header Banner -->
-        <header class="hub-header">
-          <div class="avatar-pair">
+    <div class="site-wrapper">
+      <!-- Site Header -->
+      <header class="site-header">
+        <div class="header-container">
+          <div class="couple-badge">
             <span class="avatar">S</span>
-            <span class="heart-badge">❤️</span>
+            <span class="heart-icon-inline">❤️</span>
             <span class="avatar">J</span>
           </div>
-          <h1 class="hub-title">Samprita x Jishnu</h1>
-          <p class="hub-subtitle">Our Little Corner of the Internet</p>
-        </header>
-
-        <!-- Secret Heart Code Vault Entry -->
-        <div class="heart-code-container">
-          <svg class="heart-bg" viewBox="0 0 200 200">
-            <path d="M100,165 C20,100 20,40 70,40 C88,40 100,55 100,55 C100,55 112,40 130,40 C180,40 180,100 100,165 Z" />
-          </svg>
-          <div class="secret-box">
-            <label for="secretInput" class="secret-hint">Secret Vault</label>
-            <input 
-              type="password" 
-              id="secretInput" 
-              class="secret-input" 
-              placeholder="••••••" 
-              maxlength="6"
-              autocomplete="off"
-            >
-            <span id="codeFeedback" class="feedback-text"></span>
-          </div>
+          <h1 class="main-title">Samprita x Jishnu</h1>
+          <p class="subtitle">Our Personal Corner & Shared Space</p>
         </div>
+      </header>
 
-        <!-- Hub Interactive Grid -->
-        <div class="hub-grid">
-          
-          <!-- Love Letter Card -->
-          <div class="hub-item">
-            <div class="hub-icon">💌</div>
-            <h3>Love Note</h3>
-            <p>A message straight from the heart.</p>
-            <button class="btn btn-primary" id="read-letter-btn">
-              Read Letter ✉️
-            </button>
-          </div>
+      <!-- Main Content Container -->
+      <main class="main-content">
+        <!-- Hero Welcome Section -->
+        <section class="content-section hero-section">
+          <h2>Welcome Home, Beautiful ❤️</h2>
+          <p>
+            I made a little corner of the internet just for you. Thank you for
+            being the best part of my days, making me laugh, and being exactly
+            who you are.
+          </p>
+        </section>
 
-          <!-- Special Surprise Card -->
-          <div class="hub-item">
-            <div class="hub-icon">✨</div>
-            <h3>Surprises</h3>
-            <p>Little hidden moments & smiles.</p>
-            <button class="btn" id="surprise-btn">Click for Surprise</button>
-          </div>
-
-          <!-- Our Memories / Highlights -->
-          <div class="hub-item full-width">
-            <div class="hub-icon">📸</div>
-            <h3>Our Highlights</h3>
-            <div class="pill-tags">
-              <span class="tag">Late Night Chats 🌙</span>
-              <span class="tag">Inside Jokes 😂</span>
-              <span class="tag">Unforgettable Moments ✨</span>
+        <!-- Secret Heart Lock Vault -->
+        <section class="content-section secret-section">
+          <h3>Secret Vault Entry</h3>
+          <div class="heart-code-container">
+            <svg class="heart-bg" viewBox="0 0 200 200">
+              <path
+                d="M100,165 C20,100 20,40 70,40 C88,40 100,55 100,55 C100,55 112,40 130,40 C180,40 180,100 100,165 Z"
+              />
+            </svg>
+            <div class="secret-box">
+              <label for="secretInput" class="secret-hint">Secret Code</label>
+              <input
+                type="password"
+                id="secretInput"
+                class="secret-input"
+                placeholder="••••••"
+                maxlength="6"
+                autocomplete="off"
+              />
+              <span id="codeFeedback" class="feedback-text"></span>
             </div>
           </div>
+        </section>
 
-        </div>
+        <!-- Love Letter Section -->
+        <section class="content-section letter-section" id="letter-section">
+          <h3>A Letter For You ✉️</h3>
+          <div class="letter-paper">
+            <div class="letter-header">My Dearest,</div>
+            <div class="letter-body">
+              <p>
+                I love you so much, Samprita. I think I'm the luckiest person in
+                the world to have you as mine. I love you, my cutieepiee babyyy😘😘
+              </p>
+              <p>
+                U r my sunshine, my anxiety relief, my love, my world. I can't live
+                without you with me. You are my everything, Miss Dey.
+              </p>
+              <p>
+                No matter where life takes us, always remember that you have my whole
+                heart, completely and entirely.
+              </p>
+            </div>
+            <div class="letter-footer">
+              Forever & always,<br />
+              <strong>Your Ahaan❤️</strong>
+            </div>
+          </div>
+        </section>
 
-        <div id="secret-message"></div>
-      </div>
+        <!-- Interactive Actions Hub Section -->
+        <section class="content-section actions-section">
+          <h3>Explore & Surprises</h3>
+          <div class="actions-grid">
+            <button class="btn btn-primary" id="surprise-btn">
+              Click for a Surprise ✨
+            </button>
+            <div id="secret-message"></div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Site Footer -->
+      <footer class="site-footer">
+        <p>Made with ❤️ for Samprita by Jishnu</p>
+      </footer>
     </div>
 
-    <!-- Letter Reader Screen -->
-    <div class="home-container" id="letter-screen-wrapper">
-      <div class="container letter-container" id="letter-screen">
-        <div class="letter-paper">
-          <div class="letter-header">My Dearest Samprita,</div>
-          <div class="letter-body">
-            <p>
-              I love you so much. I think I'm the luckiest person in the world to have you as mine. 
-              You bring so much warmth and light into every single day.
-            </p>
-            <p>
-              You are my sunshine, my comfort, my love, and my world. I can't imagine life without you by my side.
-            </p>
-            <p>
-              No matter where life takes us, always remember that you have my whole heart, completely and entirely.
-            </p>
-          </div>
-          <div class="letter-footer">
-            Forever & always,<br />
-            <strong>Your Jishnu ❤️</strong>
-          </div>
-        </div>
-        <button class="btn btn-back" id="back-to-home-btn">← Back to Hub</button>
-      </div>
-    </div>
-
-    <!-- Heart Rain Animation Overlay -->
+    <!-- Heart Rain Screen Overlay -->
     <div class="rain-container" id="rain-screen">
       <div class="rain-overlay">
         <h1>Falling for you...</h1>
@@ -138,7 +137,7 @@
       </div>
     </div>
 
-    <!-- Anniversary & Countdown Modal -->
+    <!-- Special Countdown Modal -->
     <div class="modal-overlay" id="countdown-modal">
       <div class="modal-content">
         <button class="close-modal-btn" id="close-modal-btn">✕</button>
@@ -168,16 +167,16 @@
 
     <script src="script.js"></script>
 
-    <!-- Passcode & Secret Vault Logic -->
+    <!-- Secret Code Passcode Listener -->
     <script>
-      const SECRET_CODE = "901371"; 
-      const TARGET_HREF = "https://jishnucode2.github.io/test/"; 
+      const SECRET_CODE = "901371";
+      const TARGET_HREF = "https://jishnucode2.github.io/test/";
 
-      const secretInput = document.getElementById('secretInput');
-      const codeFeedback = document.getElementById('codeFeedback');
+      const secretInput = document.getElementById("secretInput");
+      const codeFeedback = document.getElementById("codeFeedback");
 
       if (secretInput) {
-        secretInput.addEventListener('input', (e) => {
+        secretInput.addEventListener("input", (e) => {
           const value = e.target.value.trim();
 
           if (value.length === SECRET_CODE.length) {
@@ -185,17 +184,17 @@
               codeFeedback.innerText = "Unlocked! ✨ Redirecting...";
               codeFeedback.className = "feedback-text correct";
               secretInput.blur();
-              
+
               setTimeout(() => {
                 window.location.href = TARGET_HREF;
               }, 500);
             } else {
               codeFeedback.innerText = "Wrong code!";
               codeFeedback.className = "feedback-text incorrect";
-              
+
               secretInput.style.transform = "translateX(4px)";
-              setTimeout(() => secretInput.style.transform = "translateX(-4px)", 50);
-              setTimeout(() => secretInput.style.transform = "translateX(0)", 100);
+              setTimeout(() => (secretInput.style.transform = "translateX(-4px)"), 50);
+              setTimeout(() => (secretInput.style.transform = "translateX(0)"), 100);
             }
           } else {
             codeFeedback.innerText = "";
