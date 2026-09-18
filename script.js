@@ -83,16 +83,16 @@ function createHeart(button) {
   heart.innerHTML = "❤️";
 
   const rect = button.getBoundingClientRect();
-  const activeCard = button.closest(".container");
-  const containerRect = activeCard.getBoundingClientRect();
 
-  const x = rect.left - containerRect.left + Math.random() * rect.width;
-  const y = rect.top - containerRect.top - 15 * Math.random();
+  // Position relative to the viewport instead of requiring .container
+  heart.style.position = "fixed";
+  heart.style.left =
+    rect.left + Math.random() * rect.width + "px";
+  heart.style.top =
+    rect.top - Math.random() * 30 + "px";
 
-  heart.style.left = x + "px";
-  heart.style.top = y + "px";
+  document.body.appendChild(heart);
 
-  activeCard.appendChild(heart);
   setTimeout(() => {
     heart.remove();
   }, 2000);
