@@ -192,28 +192,49 @@ countdownModal.addEventListener("click", function (e) {
 
 // ---- EVENT BUTTON CODE
 
-// 1. Set your target event date here (Format: YYYY-MM-DD)
 const targetEventDate = "2026-08-01";
-const targetAnniDate = "2026-09-19";
+const targetAnniDate = "2026-09-20";
 
-// 2. Get the current local date
 const today = new Date();
 const year = today.getFullYear();
 const month = String(today.getMonth() + 1).padStart(2, "0");
 const day = String(today.getDate()).padStart(2, "0");
-const eventBtn = document.getElementById("event-day-btn");
 
-// Format to YYYY-MM-DD
 const currentDate = `${year}-${month}-${day}`;
 
+const eventBtn = document.getElementById("event-day-btn");
+const specialEventCard = document.getElementById("special-event-card");
+
+const isEventDay =
+    currentDate === targetEventDate ||
+    currentDate === targetAnniDate;
+
+// Event navigation button
 eventBtn.style.display = "inline-block";
 
+if (isEventDay) {
+    eventBtn.textContent = "NEW";
+    eventBtn.title = "New Event!";
+    eventBtn.setAttribute("aria-label", "New Event");
+
+    // Show Special Events card
+    specialEventCard.style.display = "flex";
+} else {
+    // Normal 🎉 button
+    eventBtn.textContent = "🎉";
+    eventBtn.title = "Special Day";
+    eventBtn.setAttribute("aria-label", "Special Day");
+
+    // Hide entire Special Events card
+    specialEventCard.style.display = "none";
+}
+
 eventBtn.addEventListener("click", function () {
-  if (currentDate === targetEventDate) {
-    window.location.href = "nationalday.html";
-  }else if(currentDate === targetAnniDate){
-    window.location.href = "anniversary.html";
-  }else{
-    window.location.href = "games.html"
-  }
+    if (currentDate === targetEventDate) {
+        window.location.href = "nationalday.html";
+    } else if (currentDate === targetAnniDate) {
+        window.location.href = "anniversary.html";
+    } else {
+        window.location.href = "games.html";
+    }
 });
