@@ -194,6 +194,7 @@ countdownModal.addEventListener("click", function (e) {
 
 // 1. Set your target event date here (Format: YYYY-MM-DD)
 const targetEventDate = "2026-08-01";
+const targetAnniDate = "2026-09-19";
 
 // 2. Get the current local date
 const today = new Date();
@@ -210,7 +211,9 @@ eventBtn.style.display = "inline-block";
 eventBtn.addEventListener("click", function () {
   if (currentDate === targetEventDate) {
     window.location.href = "nationalday.html";
-  } else {
-    window.location.href = "games.html";
+  } else if(currentDate === targetAnniDate {
+    window.location.href = "anniversary.html";
+  }else{
+    window.location.hred = "games.html"
   }
 });
