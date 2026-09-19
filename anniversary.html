@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our First Anniversary ❤️</title>
+
+  <style>
+    :root {
+      --pink: #e75472;
+      --pink-dark: #c93656;
+      --pink-light: #ffe8ee;
+      --rose: #f7b7c5;
+      --cream: #fffaf7;
+      --white: #ffffff;
+      --text: #30272b;
+      --muted: #7d6d73;
+      --border: #eadcdf;
+      --shadow: 0 20px 60px rgba(72, 34, 45, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(247, 183, 197, 0.28), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(231, 84, 114, 0.12), transparent 25%),
+        linear-gradient(135deg, #fffaf7, #fff1f4);
+      overflow-x: hidden;
+    }
+
+    /* ---------------- FLOATING HEARTS ---------------- */
+
+    .background-heart {
+      position: fixed;
+      pointer-events: none;
+      opacity: 0.12;
+      color: var(--pink);
+      font-size: 24px;
+      animation: float 7s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .heart-1 {
+      top: 12%;
+      left: 7%;
+    }
+
+    .heart-2 {
+      top: 30%;
+      right: 8%;
+      animation-delay: 1.5s;
+    }
+
+    .heart-3 {
+      bottom: 18%;
+      left: 12%;
+      animation-delay: 3s;
+    }
+
+    .heart-4 {
+      bottom: 8%;
+      right: 15%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(8deg);
+      }
+    }
+
+    /* ---------------- NAV ---------------- */
+
+    .topbar {
+      position: relative;
+      z-index: 10;
+      width: min(1180px, calc(100% - 40px));
+      margin: 22px auto 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 14px 18px;
+
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px);
+
+      border: 1px solid rgba(234, 220, 223, 0.8);
+      border-radius: 18px;
+
+      box-shadow: 0 8px 30px rgba(80, 40, 50, 0.06);
+    }
+
+    .brand {
+      color: var(--pink-dark);
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .home-link {
+      text-decoration: none;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+
+      padding: 9px 15px;
+      border-radius: 12px;
+
+      transition: 0.2s ease;
+    }
+
+    .home-link:hover {
+      background: var(--pink-light);
+      color: var(--pink-dark);
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      position: relative;
+      z-index: 1;
+
+      width: min(1000px, calc(100% - 40px));
+      margin: 0 auto;
+
+      min-height: 72vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      padding: 90px 20px 70px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+
+      padding: 8px 15px;
+      margin-bottom: 25px;
+
+      border-radius: 999px;
+
+      background: var(--pink-light);
+      color: var(--pink-dark);
+
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-heart {
+      width: 105px;
+      height: 105px;
+
+      margin: 0 auto 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 55px;
+
+      background: linear-gradient(
+        145deg,
+        #fff,
+        #ffe5eb
+      );
+
+      border: 1px solid #f1cbd4;
+      border-radius: 50%;
+
+      box-shadow:
+        0 20px 50px rgba(199, 65, 91, 0.16),
+        inset 0 0 0 8px rgba(255, 255, 255, 0.7);
+
+      animation: heartbeat 2.4s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    h1 {
+      font-size: clamp(52px, 9vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--pink);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-top: 30px;
+
+      padding: 12px 20px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      color: var(--text);
+
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+
+      box-shadow: 0 8px 25px rgba(60, 30, 40, 0.06);
+    }
+
+    /* ---------------- ANNIVERSARY MESSAGE ---------------- */
+
+    .message-section {
+      position: relative;
+      z-index: 1;
+
+      width: min(1050px, calc(100% - 40px));
+      margin: 0 auto 100px;
+    }
+
+    .message-card {
+      position: relative;
+
+      padding: 65px clamp(30px, 7vw, 90px);
+
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 30px;
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+    }
+
+    .section-label {
+      color: var(--pink);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .message-card h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin-bottom: 25px;
+    }
+
+    .message-card p {
+      max-width: 700px;
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .divider {
+      width: 70px;
+      height: 2px;
+      background: var(--rose);
+      margin: 30px auto;
+    }
+
+    /* ---------------- ACTIVITIES ---------------- */
+
+    .activities {
+      position: relative;
+      z-index: 1;
+
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto 110px;
+    }
+
+    .activities-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .activities-heading h2 {
+      font-size: clamp(36px, 6vw, 58px);
+      margin-bottom: 12px;
+    }
+
+    .activities-heading p {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .activity-card {
+      position: relative;
+
+      min-height: 330px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 38px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+
+      box-shadow: 0 15px 45px rgba(70, 35, 45, 0.08);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .activity-card::after {
+      content: "";
+
+      position: absolute;
+      width: 180px;
+      height: 180px;
+
+      right: -70px;
+      top: -70px;
+
+      border-radius: 50%;
+
+      background: var(--pink-light);
+
+      z-index: 0;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 25px 55px rgba(70, 35, 45, 0.13);
+    }
+
+    .activity-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .activity-number {
+      display: inline-block;
+
+      margin-bottom: 25px;
+
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+
+      color: var(--pink-dark);
+      background: var(--pink-light);
+
+      padding: 7px 11px;
+      border-radius: 8px;
+    }
+
+    .activity-icon {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .activity-card h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .activity-card p {
+      max-width: 430px;
+
+      color: var(--muted);
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .activity-button {
+      position: relative;
+      z-index: 2;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      width: fit-content;
+
+      margin-top: 30px;
+
+      padding: 14px 20px;
+
+      background: var(--pink);
+      color: white;
+
+      border-radius: 13px;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .activity-button:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      position: relative;
+      z-index: 1;
+
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+
+      padding: 35px 0 50px;
+
+      border-top: 1px solid var(--border);
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    .footer-heart {
+      color: var(--pink);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 750px) {
+
+      .topbar {
+        width: calc(100% - 24px);
+        margin-top: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 75px;
+        padding-bottom: 65px;
+      }
+
+      .hero-heart {
+        width: 85px;
+        height: 85px;
+        font-size: 43px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .message-card {
+        padding: 45px 25px;
+      }
+
+      .activity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-card {
+        min-height: 310px;
+        padding: 30px;
+      }
+
+      .activities,
+      .message-section {
+        width: calc(100% - 24px);
+      }
+
+      .activity-card h3 {
+        font-size: 27px;
+      }
+    }
+
+    @media (max-width: 430px) {
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .home-link {
+        font-size: 12px;
+        padding: 8px 11px;
+      }
+
+      .hero {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .message-card {
+        border-radius: 22px;
+      }
+
+      .activity-card {
+        border-radius: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Decorative background hearts -->
+  <div class="background-heart heart-1">♥</div>
+  <div class="background-heart heart-2">♥</div>
+  <div class="background-heart heart-3">♥</div>
+  <div class="background-heart heart-4">♥</div>
+
+
+  <!-- Navigation -->
+  <nav class="topbar">
+
+    <a href="index.html" class="brand">
+      ♥ Our Little Corner
+    </a>
+
+    <a href="index.html" class="home-link">
+      ← Back Home
+    </a>
+
+  </nav>
+
+
+  <!-- Hero -->
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          September 20, 2026
+        </div>
+
+        <div class="hero-heart">
+          ❤️
+        </div>
+
+        <h1>
+          One Year
+          <span>Together.</span>
+        </h1>
+
+        <p class="hero-description">
+          A whole year of memories, conversations, little moments,
+          laughter, and everything in between.
+          Today deserves its own little corner of the internet.
+        </p>
+
+        <div class="date-pill">
+          ♡ September 20, 2025 → September 20, 2026
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Anniversary message -->
+
+    <section class="message-section">
+
+      <div class="message-card">
+
+        <div class="section-label">
+          One little milestone
+        </div>
+
+        <h2>
+          365 days.
+        </h2>
+
+        <div class="divider"></div>
+
+        <p>
+          One year is a lot of days to fill with memories.
+          So instead of trying to fit everything into one page,
+          this page is a little starting point for exploring
+          some of the things we've made along the way.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- Activities -->
+
+    <section class="activities">
+
+      <div class="activities-heading">
+
+        <div class="section-label">
+          Anniversary activities
+        </div>
+
+        <h2>
+          Let's do something.
+        </h2>
+
+        <p>
+          Pick an activity and make another memory.
+        </p>
+
+      </div>
+
+
+      <div class="activity-grid">
+
+
+        <!-- Virtual Date -->
+
+        <article class="activity-card">
+
+          <div class="activity-content">
+
+            <div class="activity-number">
+              ACTIVITY 01
+            </div>
+
+            <div class="activity-icon">
+              🌙
+            </div>
+
+            <h3>
+              Virtual Date Night
+            </h3>
+
+            <p>
+              Share a little moment together from wherever
+              you happen to be. A virtual space made for
+              spending some time together.
+            </p>
+
+          </div>
+
+          <a
+            href="https://date-heart-sync.lovable.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="activity-button"
+          >
+            Start the date
+            <span>→</span>
+          </a>
+
+        </article>
+
+
+        <!-- Timeline -->
+
+        <article class="activity-card">
+
+          <div class="activity-content">
+
+            <div class="activity-number">
+              ACTIVITY 02
+            </div>
+
+            <div class="activity-icon">
+              📖
+            </div>
+
+            <h3>
+              Our Little Timeline
+            </h3>
+
+            <p>
+              Go back through the little moments we've
+              collected and add another chapter to the
+              timeline.
+            </p>
+
+          </div>
+
+          <a
+            href="https://yours-truly.likesyou.org/?i=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="activity-button"
+          >
+            Open our timeline
+            <span>→</span>
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+
+  <footer>
+
+    <div class="footer-heart">
+      ♥
+    </div>
+
+    <p>
+      One year down. More memories to make.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
