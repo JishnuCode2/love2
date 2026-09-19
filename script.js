@@ -211,7 +211,7 @@ eventBtn.style.display = "inline-block";
 eventBtn.addEventListener("click", function () {
   if (currentDate === targetEventDate) {
     window.location.href = "nationalday.html";
-  } else if(currentDate === targetAnniDate {
+  }else if(currentDate === targetAnniDate){
     window.location.href = "anniversary.html";
   }else{
     window.location.hred = "games.html"
