@@ -214,6 +214,6 @@ eventBtn.addEventListener("click", function () {
   }else if(currentDate === targetAnniDate){
     window.location.href = "anniversary.html";
   }else{
-    window.location.hred = "games.html"
+    window.location.href = "games.html"
   }
 });
