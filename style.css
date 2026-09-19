@@ -23,6 +23,200 @@
     --max: 1240px;
 }
 
+/* ================================
+   THINGS TO DO
+================================ */
+
+.things-section {
+    width: min(1120px, calc(100% - 40px));
+    margin: 100px auto;
+}
+
+.things-header {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: var(--pink, #e75472);
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.things-header h2 {
+    margin-bottom: 14px;
+
+    color: var(--ink, #292126);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
+}
+
+.things-header p {
+    color: var(--muted, #8d7e83);
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* Cards */
+
+.things-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.thing-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+
+    padding: 35px;
+
+    background: var(--white, #fff);
+    border: 1px solid var(--line, #eadde0);
+    border-radius: 24px;
+
+    box-shadow: 0 15px 45px rgba(70, 35, 45, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.thing-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 22px 55px rgba(70, 35, 45, 0.11);
+}
+
+
+/* Icon */
+
+.thing-icon {
+    flex: 0 0 70px;
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--pink-soft, #ffe7ed);
+    border-radius: 20px;
+
+    font-size: 32px;
+}
+
+
+/* Content */
+
+.thing-content {
+    flex: 1;
+}
+
+.thing-content h3 {
+    margin-bottom: 10px;
+
+    color: var(--ink, #292126);
+    font-size: 28px;
+}
+
+.thing-content p {
+    margin-bottom: 22px;
+
+    color: var(--muted, #8d7e83);
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+
+/* Buttons */
+
+.thing-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: var(--pink, #e75472);
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.thing-button:hover {
+    background: var(--pink-dark, #c93656);
+    transform: translateY(-2px);
+}
+
+.thing-button span {
+    font-size: 16px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+
+    .things-section {
+        width: calc(100% - 24px);
+        margin: 70px auto;
+    }
+
+    .things-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .thing-card {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .thing-card {
+        flex-direction: column;
+    }
+
+    .thing-icon {
+        width: 60px;
+        height: 60px;
+        flex-basis: 60px;
+    }
+
+    .thing-content h3 {
+        font-size: 25px;
+    }
+}
+
 
 /* =========================================================
    RESET
